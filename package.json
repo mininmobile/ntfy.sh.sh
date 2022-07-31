@@ -1,6 +1,6 @@
 {
   "name": "ntfy.sh.sh",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "run scripts on ntfy.sh events",
   "main": "index.js",
   "dependencies": {

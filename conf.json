@@ -11,8 +11,12 @@
 		"topic": "script-alerts",
 		"key": "password",
 		"tasks": {
-			"enter hacker mode": [ "color 0a && tree E:", "color 0a && tree E:", "color 0a && tree E:" ],
-			"run script": ["bin\\script.bat"]
+			"enter hacker mode": [
+				"start cmd /C \"color 0a && tree E:\"",
+				"start cmd /C \"color 0a && tree E:\"",
+				"start cmd /C \"color 0a && tree E:\""
+			],
+			"run script": ["start cmd /C \"bin\\script.bat\""]
 		}
 	}
 ]
