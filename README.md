@@ -3,9 +3,15 @@ run scripts on ntfy.sh events
 
 ![](https://github.com/mininmobile/ntfy.sh.sh/blob/master/docs/demo.gif?raw=true)
 
-## installation
+# installation
 ntfy.sh.sh requires node.js (unfortunately) so you need to have that installed
 
+## from npm
+```sh
+$ npm i -g ntfy.sh.sh
+```
+
+## from source
 ```sh
 $ git clone https://github.com/mininmobile/ntfy.sh.sh.git
 
@@ -16,7 +22,7 @@ $ npm i # install dependencies
 $ npm i -g # add to path
 ```
 
-## usage
+# usage
 `-l` or `--list` lists all of the topics and tasks with their respective ids in the configuration file
 
 `-s` or `--send` takes a topic name/id and a task name/id argument, then sends that task to the topic
