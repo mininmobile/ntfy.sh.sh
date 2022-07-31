@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { exec } = require("child_process");
 const EventSource = require("eventsource");
 const seedrandom = require("seedrandom");
@@ -6,37 +7,39 @@ const config = require("./conf.json");
 const argv = process.argv[0].includes("node") ? process.argv.slice(2) : process.argv.slice(1);
 
 switch (argv[0]) {
-	case "-v":
+	case "-v": case "--version":
 		console.log(info.name, "v" + info.version);
 		Object.keys(info.dependencies).forEach(dependency =>
 			console.log("→", dependency, require("./node_modules/" + dependency + "/package.json").version))
 		break;
 
-	case "-h":
+	case "-h": case "--help": default:
 		console.log("ntfyshsh < -v | -h | -t > ...");
 		console.log();
 		console.log([
-			{a: "-v", d: "prints the command version"},
-			{a: "-h", d: "prints command help"},
-			{a: "-l", d: "lists all topics and tasks along with their ids"},
-			{a: "-s", d: "sends a task to a topic, takes arguments: <topic> <task>\n\t\ - " +
+			["-v", "prints the command version"],
+			["-h", "prints command help"],
+			["-l", "lists all topics and tasks along with their ids"],
+			["-s", "sends a task to a topic, takes arguments: <topic> <task>\n\t\ - " +
 			             "<topic> is the topic name or topic id to send the task to\n\t - " +
-			             "<task> is the task name or task id to send"},
-			{a: "n/a", d: "starts listening to topics for tasks"},
-		].map(x => " " + x.a + "\t" + x.d).join("\n")),
+			             "<task> is the task name or task id to send"],
+			["n/a", "starts listening to topics for tasks"],
+		].map(x => " " + x[0] + "\t" + x[1]).join("\n")),
 		console.log();
 		console.log("configuration is stored in", __dirname.replace(/\\/g, "/").replace(/[a-z]:\/Users\/.+?\/|\/home\/.+?\//i, "~/") + "/conf.json");
 		break;
 
-	case "-l": config.forEach((source, i) => {
-		console.log(i, "|", source.topic);
+	case "-l": case "--list":
+		config.forEach((source, i) => {
+			console.log(i, "|", source.topic);
 
-		let tasks = Object.keys(source.tasks);
-		tasks.forEach((t, j) =>
-			console.log("\t", j, "|", t))
-	}); break;
+			let tasks = Object.keys(source.tasks);
+			tasks.forEach((t, j) =>
+				console.log("\t", j, "|", t))
+		});
+		break;
 
-	case "-s":
+	case "-s": case "--send":
 		let topic = argv[1];
 		let task = argv[2];
 
@@ -54,7 +57,7 @@ switch (argv[0]) {
 
 		break;
 
-	default: config.forEach((source, i) => {
+	case undefined: config.forEach((source, i) => {
 		const stream = new EventSource(`https://ntfy.sh/${source.topic}/sse`);
 		stream.onopen = (e) => e.data ? console.log("→ connected to topic", source.topic) : null;
 		stream.onerror = (e) => console.log("← [error]", e.data);
