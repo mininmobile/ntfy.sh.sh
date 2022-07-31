@@ -1,9 +1,16 @@
 [
 	{
-		"topic": "disk-alerts",
-		"key": "password123",
+		"topic": "computer-alerts",
+		"key": "password",
 		"tasks": {
-			"open file manager": [ "explorer ." ],
+			"open file manager": [ "start explorer ." ],
+			"test": [ "echo hi" ]
+		}
+	},
+	{
+		"topic": "script-alerts",
+		"key": "password",
+		"tasks": {
 			"enter hacker mode": [ "color 0a && tree E:", "color 0a && tree E:", "color 0a && tree E:" ],
 			"run script": ["bin\\script.bat"]
 		}

@@ -1,6 +1,24 @@
 {
+  "name": "ntfy.sh.sh",
+  "version": "0.1.1",
+  "description": "run scripts on ntfy.sh events",
+  "main": "index.js",
   "dependencies": {
     "eventsource": "^2.0.2",
+    "node-fetch": "^3.2.10",
     "seedrandom": "^3.0.5"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mininmobile/ntfy.sh.sh.git"
+  },
+  "author": "mininmobile",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mininmobile/ntfy.sh.sh/issues"
+  },
+  "homepage": "https://github.com/mininmobile/ntfy.sh.sh#readme"
 }
