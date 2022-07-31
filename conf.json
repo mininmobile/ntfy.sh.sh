@@ -1,0 +1,11 @@
+[
+	{
+		"topic": "disk-alerts",
+		"key": "password123",
+		"tasks": {
+			"open file manager": [ "explorer ." ],
+			"enter hacker mode": [ "color 0a && tree E:", "color 0a && tree E:", "color 0a && tree E:" ],
+			"run script": ["bin\\script.bat"]
+		}
+	}
+]
