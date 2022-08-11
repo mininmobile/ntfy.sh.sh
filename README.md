@@ -23,6 +23,8 @@ $ npm i -g # add to path
 ```
 
 # usage
+to use, run the command `ntfyshsh` (no periods!!) in the terminal, some useful arguments;
+
 `-h` or `--help` will list *all* possible arguments as well as the location of the configuration file
 
 `-l` or `--list` lists all of the topics and tasks with their respective ids in the configuration file
